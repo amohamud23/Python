@@ -17,10 +17,12 @@ def drawBoard(board):
     
 
 
-def makeMove(board):
+def makeMove(board, player):
+    
+   print("Player ", player, "'s Turn")
    row = int(input("Enter Row number (0,1,2): "))
    col = int(input("Enter Column number (0,1,2): "))
-   board[row][col] = 'X'
+   board[row][col] = player
    
    
 
@@ -45,7 +47,14 @@ def isWon(board, player):
 
 while True:
     drawBoard(board)
-    makeMove(board)
+    makeMove(board, 'X')
     if isWon(board, 'X'):
         print("Player X Won!")
         break
+
+    drawBoard(board)
+    makeMove(board, 'O')
+    if isWon(board,'O'):
+        print("Player O Won!")
+        break
+    
