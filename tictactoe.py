@@ -3,14 +3,14 @@ board =[['','',''],['','',''],['','','']]
 
 
 def drawBoard(board):
-    print("-----------------")
+    print("--------------")
     for i in board:
     
         for j in i:
             print(" ",j,end=' |')
     
         print()
-        print("-----------------")
+        print("--------------")
     return
 
 #def switchPlayer(player)
@@ -21,25 +21,31 @@ def makeMove(board):
    row = int(input("Enter Row number (0,1,2): "))
    col = int(input("Enter Column number (0,1,2): "))
    board[row][col] = 'X'
-   drawBoard(board)
+   
+   
 
-def isWon(board):
-    if board[0][0] == board[0][1] == board[0][2] :
+def isWon(board, player):
+    if board[0][0] == player and board[0][1] == player and board[0][2] == player :
         return True
-    if board[1][0] == board[1][1] == board[1][2] :
+    if board[1][0] == player and board[1][1] == player and board[1][2] == player :
         return True
-    if board[2][0] == board[2][1] == board[2][2] :
+    if board[2][0] == player and board[2][1] == player and board[2][2] == player :
         return True
-    if board[0][0] == board[1][0] == board[2][0] :
+    if board[0][0] == player and board[1][0] == player and board[2][0] == player :
         return True
-    if board[0][1] == board[1][1] == board[2][1] :
+    if board[0][1] == player and board[1][1] == player and board[2][1] == player :
         return True
-    if board[0][2] == board[1][2] == board[2][2] :
+    if board[0][2] == player and board[1][2] == player and board[2][2] == player :
         return True
-    if board[0][0] == board[0][1] == board[0][2] :
+    if board[0][0] == player and board[0][1] == player and board[0][2] == player :
         return True
+    else:
+        return False
     
 
-while not isWon(board):
+while True:
     drawBoard(board)
     makeMove(board)
+    if isWon(board, 'X'):
+        print("Player X Won!")
+        break
