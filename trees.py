@@ -12,4 +12,4 @@ root.left = "left"
 root.right = Tree()
 root.right = "right"
 
-print("TREE")
+print()
