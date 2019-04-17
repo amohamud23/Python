@@ -13,7 +13,7 @@ n3 = Node()
 n4 = Node()
 n5 = Node()
 n6 = Node()
-root.data = 1
+root.data = "root"
 root.left = n1
 root.right = n2
 
