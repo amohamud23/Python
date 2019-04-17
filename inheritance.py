@@ -27,4 +27,3 @@ w = Student(u)
 
 print(t.age, t.isStudent)
 print(w.name, w.age)
-
