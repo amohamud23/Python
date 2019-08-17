@@ -1,21 +1,31 @@
-from mpl_toolkits.mplot3d import Axes3D
-import matplotlib.pyplot as plt
+import plotly.plotly as py
+import plotly.graph_objs as go
+import numpy as mp
 
+import pandas as pd
 
-
-fig = plt.figure()
-ax = fig.add_subplot(111, projection='3d')
-
-x =[1,2,3,4,5,6,7,8,9,10]
-y =[5,6,2,3,13,4,1,2,4,8]
-z =[2,3,3,3,5,7,9,11,9,10]
-
-
-
-ax.scatter(x, y, z, c='r', marker='o')
-
-ax.set_xlabel('X Label')
-ax.set_ylabel('Y Label')
-ax.set_zlabel('Z Label')
-
-plt.show()
+# Read data from a csv
+i=0
+z_data = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/api_docs/mt_bruno_elevation.csv')
+x = mp.linspace(-2*mp.math.pi,2*mp.math.pi,100)
+y = 20*mp.cos(x)
+z = mp.linspace(20,20,100)
+data = [
+    go.Surface(
+        z=[z,y]
+    )
+]
+layout = go.Layout(
+    title='Test',
+    autosize=True,
+    width=500,
+    height=500,
+    margin=dict(
+        l=65,
+        r=50,
+        b=65,
+        t=90
+    )
+)
+fig = go.Figure(data=data, layout=layout)
+py.plot(fig, filename='elevations-3d-surface')

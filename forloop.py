@@ -1,4 +1,9 @@
-for i in range(6):
-    for j in range(5):
-        print(j)
-    print("\n")
+import numpy as np
+
+table = []
+
+for i in range(50):
+    table.append([i,i+1])
+
+print(table)            
+            
